@@ -1,1 +1,24 @@
-{"name":"jsb-support","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"tsx watch src/index.ts","build":"tsc","start":"node dist/index.js","deploy:commands":"tsx scripts/deploy-commands.ts"},"dependencies":{"discord.js":"^14.22.1","dotenv":"^16.6.1"},"devDependencies":{"@types/node":"^20.0.0","tsx":"^4.0.0","typescript":"^5.0.0"},"engines":{"node":">=18"}}
+{
+  "name": "jsb-support",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "deploy:commands": "tsx scripts/deploy-commands.ts"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
