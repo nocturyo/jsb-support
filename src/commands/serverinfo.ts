@@ -29,7 +29,11 @@ const command: Command = {
         { name: 'Właściciel', value: owner ? owner.user.toString() : '—', inline: true },
         { name: 'Utworzony', value: ts(g.createdAt), inline: true },
         { name: 'Członkowie', value: `${g.memberCount}`, inline: true },
-        { name: 'Poziom boostów', value: `${g.premiumTier} (${g.premiumSubscriptionCount ?? 0})`, inline: true },
+        {
+          name: 'Poziom boostów',
+          value: `${g.premiumTier} (${g.premiumSubscriptionCount ?? 0})`,
+          inline: true,
+        },
         { name: 'Weryfikacja', value: `${g.verificationLevel}`, inline: true },
         {
           name: 'Kanały',

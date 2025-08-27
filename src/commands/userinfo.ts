@@ -44,7 +44,11 @@ const command: Command = {
         { name: '\u200b', value: '\u200b', inline: true },
         ...(member
           ? [
-              { name: 'Dołączono na serwer', value: ts(member.joinedAt ?? new Date()), inline: true },
+              {
+                name: 'Dołączono na serwer',
+                value: ts(member.joinedAt ?? new Date()),
+                inline: true,
+              },
               { name: 'Najwyższa rola', value: member.roles.highest.toString(), inline: true },
               { name: 'Bot?', value: user.bot ? 'Tak' : 'Nie', inline: true },
             ]
@@ -55,7 +59,11 @@ const command: Command = {
                 inline: false,
               },
             ]),
-        { name: `Role (${roles.length})`, value: roles.length ? roles.join(', ') : 'Brak lub ukryte', inline: false },
+        {
+          name: `Role (${roles.length})`,
+          value: roles.length ? roles.join(', ') : 'Brak lub ukryte',
+          inline: false,
+        },
       );
 
     await interaction.reply({ embeds: [embed] });

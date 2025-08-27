@@ -11,10 +11,8 @@ const command: Command = {
   data: new SlashCommandBuilder()
     .setName('timeout')
     .setDescription('Nakłada timeout na użytkownika')
-    .addUserOption(o =>
-      o.setName('użytkownik').setDescription('Kogo uciszyć').setRequired(true),
-    )
-    .addIntegerOption(o =>
+    .addUserOption((o) => o.setName('użytkownik').setDescription('Kogo uciszyć').setRequired(true))
+    .addIntegerOption((o) =>
       o
         .setName('minuty')
         .setDescription('Czas timeoutu (1–10080)')
@@ -22,7 +20,7 @@ const command: Command = {
         .setMinValue(1)
         .setMaxValue(10080),
     )
-    .addStringOption(o =>
+    .addStringOption((o) =>
       o.setName('powód').setDescription('Powód (opcjonalnie)').setRequired(false),
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
@@ -43,7 +41,10 @@ const command: Command = {
 
     const me = await guild.members.fetchMe();
     if (member.roles.highest.position >= me.roles.highest.position) {
-      await interaction.reply({ content: 'Moja rola jest zbyt nisko, nie mogę nałożyć timeoutu.', ephemeral: true });
+      await interaction.reply({
+        content: 'Moja rola jest zbyt nisko, nie mogę nałożyć timeoutu.',
+        ephemeral: true,
+      });
       return;
     }
 

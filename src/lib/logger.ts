@@ -6,7 +6,11 @@ const COLOR = 0x0a59f6;
 export async function logModAction(
   client: ExtendedClient,
   guildId: string,
-  opts: { title: string; description?: string; fields?: { name: string; value: string; inline?: boolean }[] },
+  opts: {
+    title: string;
+    description?: string;
+    fields?: { name: string; value: string; inline?: boolean }[];
+  },
 ) {
   const channelId = process.env.LOG_CHANNEL_ID;
   if (!channelId) return;

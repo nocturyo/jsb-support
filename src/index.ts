@@ -13,7 +13,6 @@ import clear from './commands/clear.js';
 
 const client = new ExtendedClient();
 
-
 // Rejestrujemy komendy w pamięci klienta
 client.commands.set(ping.data.name, ping);
 client.commands.set(userinfo.data.name, userinfo);
@@ -27,7 +26,6 @@ client.commands.set(clear.data.name, clear);
 // Podpinamy eventy
 ready(client);
 interactionCreate(client);
-
 
 // Logowanie bota
 client.login(process.env.DISCORD_TOKEN);

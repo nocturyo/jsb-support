@@ -10,8 +10,8 @@ const command: Command = {
   data: new SlashCommandBuilder()
     .setName('ban')
     .setDescription('Banuje użytkownika')
-    .addUserOption(o => o.setName('użytkownik').setDescription('Kogo zbanować').setRequired(true))
-    .addStringOption(o => o.setName('powód').setDescription('Powód bana').setRequired(false))
+    .addUserOption((o) => o.setName('użytkownik').setDescription('Kogo zbanować').setRequired(true))
+    .addStringOption((o) => o.setName('powód').setDescription('Powód bana').setRequired(false))
     .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
     .setDMPermission(false),
   async execute(interaction) {
@@ -25,16 +25,23 @@ const command: Command = {
       return interaction.reply({ content: 'Nie możesz zbanować siebie.', ephemeral: true });
     }
     if (target.id === guild.ownerId) {
-      return interaction.reply({ content: 'Nie możesz zbanować właściciela serwera.', ephemeral: true });
+      return interaction.reply({
+        content: 'Nie możesz zbanować właściciela serwera.',
+        ephemeral: true,
+      });
     }
 
     const member = await guild.members.fetch(target.id).catch(() => null);
-    if (!member) return interaction.reply({ content: 'Nie znaleziono członka na serwerze.', ephemeral: true });
+    if (!member)
+      return interaction.reply({ content: 'Nie znaleziono członka na serwerze.', ephemeral: true });
 
     // hierarchia ról
     const me = await guild.members.fetchMe();
     if (member.roles.highest.position >= me.roles.highest.position) {
-      return interaction.reply({ content: 'Nie mam wystarczających uprawnień/pozycji roli, aby to zrobić.', ephemeral: true });
+      return interaction.reply({
+        content: 'Nie mam wystarczających uprawnień/pozycji roli, aby to zrobić.',
+        ephemeral: true,
+      });
     }
 
     await member.ban({ reason });

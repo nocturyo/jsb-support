@@ -9,12 +9,22 @@ const command: Command = {
   data: new SlashCommandBuilder()
     .setName('clear')
     .setDescription('Usuwa ostatnie wiadomości z bieżącego kanału')
-    .addIntegerOption(o => o.setName('ilość').setDescription('Ile wiadomości (1–100)').setRequired(true).setMinValue(1).setMaxValue(100))
+    .addIntegerOption((o) =>
+      o
+        .setName('ilość')
+        .setDescription('Ile wiadomości (1–100)')
+        .setRequired(true)
+        .setMinValue(1)
+        .setMaxValue(100),
+    )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .setDMPermission(false),
   async execute(interaction) {
     if (!interaction.inCachedGuild()) {
-      return interaction.reply({ content: 'Ta komenda działa tylko na serwerze.', ephemeral: true });
+      return interaction.reply({
+        content: 'Ta komenda działa tylko na serwerze.',
+        ephemeral: true,
+      });
     }
 
     const count = interaction.options.getInteger('ilość', true);
