@@ -5,7 +5,14 @@ export default class ExtendedClient extends Client {
   public commands = new Collection<string, Command>();
 
   constructor() {
-    // Dodany GuildMembers, żeby mieć dostęp do memberów/roli
-    super({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
+    super({
+      intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildModeration,
+        GatewayIntentBits.GuildMessages,     
+        GatewayIntentBits.MessageContent     
+      ],
+    });
   }
 }

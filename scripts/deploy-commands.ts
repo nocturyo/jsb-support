@@ -3,13 +3,26 @@ import { REST, Routes } from 'discord.js';
 import ping from '../src/commands/ping.js';
 import userinfo from '../src/commands/userinfo.js';
 import serverinfo from '../src/commands/serverinfo.js';
+import help from '../src/commands/help.js';
+import ban from '../src/commands/ban.js';
+import kick from '../src/commands/kick.js';
+import timeout from '../src/commands/timeout.js';
+import clear from '../src/commands/clear.js';
 
 const TOKEN = process.env.DISCORD_TOKEN!;
 const CLIENT_ID = process.env.CLIENT_ID!;
 const GUILD_ID = process.env.GUILD_ID!;
 
-const commands = [ping.data.toJSON(), userinfo.data.toJSON(), serverinfo.data.toJSON()];
-
+const commands = [
+  ping.data.toJSON(),
+  userinfo.data.toJSON(),
+  serverinfo.data.toJSON(),
+  help.data.toJSON(),
+  ban.data.toJSON(),
+  kick.data.toJSON(),
+  timeout.data.toJSON(),
+  clear.data.toJSON(),
+];
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 
 async function main() {
