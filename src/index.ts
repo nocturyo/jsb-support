@@ -10,6 +10,13 @@ import ban from './commands/ban.js';
 import kick from './commands/kick.js';
 import timeout from './commands/timeout.js';
 import clear from './commands/clear.js';
+import guildMemberAdd from './events/guildMemberAdd.js';
+import testwelcome from './commands/testwelcome.js';
+import rolespanel from './commands/rolespanel.js';
+import reactionRoles from './events/reactionRoles.js';
+import rolespanel_attach from './commands/rolespanel_attach.js';
+import ticketpanel from './commands/ticketpanel.js';
+import tickets from './events/tickets.js';
 
 const client = new ExtendedClient();
 
@@ -22,10 +29,15 @@ client.commands.set(ban.data.name, ban);
 client.commands.set(kick.data.name, kick);
 client.commands.set(timeout.data.name, timeout);
 client.commands.set(clear.data.name, clear);
-
+client.commands.set(testwelcome.data.name, testwelcome);
+client.commands.set(rolespanel.data.name, rolespanel);
+client.commands.set(rolespanel_attach.data.name, rolespanel_attach);
+client.commands.set(ticketpanel.data.name, ticketpanel);
 // Podpinamy eventy
 ready(client);
 interactionCreate(client);
-
+guildMemberAdd(client);
+reactionRoles(client);
+tickets(client);
 // Logowanie bota
 client.login(process.env.DISCORD_TOKEN);

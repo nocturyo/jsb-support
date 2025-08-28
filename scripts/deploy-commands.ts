@@ -8,6 +8,10 @@ import ban from '../src/commands/ban.js';
 import kick from '../src/commands/kick.js';
 import timeout from '../src/commands/timeout.js';
 import clear from '../src/commands/clear.js';
+import testwelcome from '../src/commands/testwelcome.js';
+import rolespanel from '../src/commands/rolespanel.js';
+import rolespanel_attach from '../src/commands/rolespanel_attach.js';
+import ticketpanel from '../src/commands/ticketpanel.js';
 
 const TOKEN = process.env.DISCORD_TOKEN!;
 const CLIENT_ID = process.env.CLIENT_ID!;
@@ -22,6 +26,10 @@ const commands = [
   kick.data.toJSON(),
   timeout.data.toJSON(),
   clear.data.toJSON(),
+  testwelcome.data.toJSON(),
+  rolespanel.data.toJSON(),
+  rolespanel_attach.data.toJSON(),
+  ticketpanel.data.toJSON(),
 ];
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 
