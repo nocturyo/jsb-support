@@ -12,6 +12,10 @@ import testwelcome from '../src/commands/testwelcome.js';
 import rolespanel from '../src/commands/rolespanel.js';
 import rolespanel_attach from '../src/commands/rolespanel_attach.js';
 import ticketpanel from '../src/commands/ticketpanel.js';
+import rank from '../src/commands/rank.js';
+import leaderboard from '../src/commands/leaderboard.js';
+import addxp from '../src/commands/addxp.js';
+import setlevelchannel from '../src/commands/setlevelchannel.js';
 
 const TOKEN = process.env.DISCORD_TOKEN!;
 const CLIENT_ID = process.env.CLIENT_ID!;
@@ -30,6 +34,10 @@ const commands = [
   rolespanel.data.toJSON(),
   rolespanel_attach.data.toJSON(),
   ticketpanel.data.toJSON(),
+  rank.data.toJSON(),
+  leaderboard.data.toJSON(),
+  addxp.data.toJSON(),
+  setlevelchannel.data.toJSON(),
 ];
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 
@@ -44,3 +52,4 @@ async function main() {
 }
 
 main();
+

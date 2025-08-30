@@ -17,6 +17,11 @@ import reactionRoles from './events/reactionRoles.js';
 import rolespanel_attach from './commands/rolespanel_attach.js';
 import ticketpanel from './commands/ticketpanel.js';
 import tickets from './events/tickets.js';
+import leveling from './events/leveling.js';
+import rank from './commands/rank.js';
+import leaderboard from './commands/leaderboard.js';
+import addxp from './commands/addxp.js';
+import setlevelchannel from './commands/setlevelchannel.js';
 
 const client = new ExtendedClient();
 
@@ -33,11 +38,16 @@ client.commands.set(testwelcome.data.name, testwelcome);
 client.commands.set(rolespanel.data.name, rolespanel);
 client.commands.set(rolespanel_attach.data.name, rolespanel_attach);
 client.commands.set(ticketpanel.data.name, ticketpanel);
+client.commands.set(rank.data.name, rank);
+client.commands.set(leaderboard.data.name, leaderboard);
+client.commands.set(addxp.data.name, addxp);
+client.commands.set(setlevelchannel.data.name, setlevelchannel);
 // Podpinamy eventy
 ready(client);
 interactionCreate(client);
 guildMemberAdd(client);
 reactionRoles(client);
 tickets(client);
+leveling(client);
 // Logowanie bota
 client.login(process.env.DISCORD_TOKEN);
